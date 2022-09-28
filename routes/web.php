@@ -26,6 +26,7 @@ use App\Http\Controllers\ListingController;
     update - update listing
     destroy - delete listin
 */
+//testing git pushes
 
 //All Listings
 Route::get('/',[ListingController::class,'index']);
