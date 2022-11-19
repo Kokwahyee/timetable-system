@@ -20,6 +20,11 @@ class UserController extends Controller
             'name'=>['required', 'min:3'],
             'email'=>['required', 'email', Rule::unique('users', 'email')],
             'password'=>'required| confirmed|min:6',
+            'course1'=>'required',
+            'course2'=>'required',
+            'course3'=>'required',
+            'course4'=>'required',
+            'groupslot'=>'required',
         ]);
 
         //Hash Password
@@ -31,7 +36,7 @@ class UserController extends Controller
         //Login
         //auth()->login($user);
 
-        return redirect('/');
+        return redirect('/group_index')->with('message', 'User Created Successfully!');;
     }
 
     //Logout User
@@ -59,7 +64,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'You are now Logged in!');
+            return redirect('/group_index')->with('message', 'You are now Logged in!');
         }
         
         return back()->withErrors(['email'=>'Invalid Credentials'])->onlyInput('email');

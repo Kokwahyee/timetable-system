@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -13,15 +14,26 @@ class ListingController extends Controller
     public function index(){
         return view('listings.index', [
             'heading' => 'Latest Listings',
-            'listings' => Listing::all()
+            'listings' => Listing::all(),
+            'users' =>User::all()
         ]);
     }
 
     //show all listings
-    public function index1(){
-        return view('listings.index1', [
+    public function exam_index(){
+        return view('listings.exam_index', [
             'heading' => 'Latest Listings',
-            'listings' => Listing::all()
+            'listings' => Listing::all(),
+            'users' =>User::all()
+        ]);
+    }
+
+    //show all listings
+    public function group_index(){
+        return view('listings.group_index', [
+            'heading' => 'Latest Listings',
+            'listings' => Listing::all(),
+            'users' =>User::all()
         ]);
     }
 
@@ -36,6 +48,14 @@ class ListingController extends Controller
     public function create(){
         return view('listings.create');
     }
+    public function exam_create(){
+        return view('listings.exam_create');
+    }
+    public function group_create(){
+        return view('listings.group_create',[
+            'users' =>User::all()
+        ]);
+    }
 
     //store listing data
     public function store(Request $request) {
@@ -45,18 +65,25 @@ class ListingController extends Controller
             'location'=>'required',
             'type'=>'required',
             'day'=>'required',
-            'time'=>'required'
+            'time'=>'required',
+            'groups'=>'required'
         ]);
         $formFields['user_id'] = auth()->id();
 
         Listing::create($formFields);
 
-        return redirect('/')->with('message', 'Listing Created Successfully!');
+        return redirect('/group_index')->with('message', 'Listing Created Successfully!');
     }
 
     //Show Edit form
     public function edit(Listing $listing) {
         return view('listings.edit', ['listing' => $listing]);
+    }
+    public function exam_edit(Listing $listing) {
+        return view('listings.exam_edit', ['listing' => $listing]);
+    }
+    public function group_edit(Listing $listing) {
+        return view('listings.group_edit', ['listing' => $listing]);
     }
 
     //update listing data
@@ -71,12 +98,13 @@ class ListingController extends Controller
             'course'=>'required',
             'location'=>'required',
             'day'=>'required',
-            'time'=>'required'
+            'time'=>'required',
+            'groups'=>'required'
         ]);
 
         $listing->update($formFields);
 
-        return redirect('/')->with('message', 'Listing Updated Successfully!');
+        return redirect('/group_index')->with('message', 'Listing Updated Successfully!');
     }
 
     //Delete Listing
@@ -88,7 +116,7 @@ class ListingController extends Controller
         }
 
         $listing->delete();
-        return redirect('/')->with('message','Listing Deleted Successfully');
+        return redirect('/group_index')->with('message','Listing Deleted Successfully');
     }
 
 

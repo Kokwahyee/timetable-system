@@ -5,7 +5,7 @@
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Create Timeslots
             </h2>
-            <p class="mb-4"></p>Timeslots for Exam/Short Test</p>
+            <p class="mb-4"></p>Timeslots for Short Test</p>
             <br>
         </header>
 
@@ -39,20 +39,12 @@
                     Type: 
                 </label>
                 <select class="form-control" name="type">
-                    <option value="exam" @if (old('type') == 'exam') selected="selected" @endif>Exam</option>
                     <option value="short test" @if (old('type') == 'short test') selected="selected" @endif>Short Test</option>
                 </select>
             </div>
 
             <div class="mb-6">
                 <label for="day" class="inline-block text-lg mb-2">Day</label>
-                {{--<input
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="title"
-                    placeholder="Example: Senior Laravel Developer"
-                    value="{{old('title')}}"
-                />--}}
 
                 <select class="form-control" name="day">
                     <option value="monday" @if (old('day') == 'monday') selected="selected" @endif>Monday</option>
@@ -70,6 +62,7 @@
                     class="inline-block text-lg mb-2"
                     >Time</label
                 >
+                
                 <select class="form-control" name="time">
                     <option value="8-9" @if (old('time') == '8-9') selected="selected" @endif>8am - 9am</option>
                     <option value="9-10" @if (old('time') == '9-10') selected="selected" @endif>9am - 10am</option>
@@ -84,6 +77,7 @@
                     <option value="6-7" @if (old('time') == '6-7') selected="selected" @endif>6pm - 7pm</option>
                     <option value="7-8" @if (old('time') == '7-8') selected="selected" @endif>7pm - 8pm</option>
                 </select>
+                
 
             </div>
 
@@ -108,14 +102,13 @@
 
             </div>
 
+
             <div class="mb-6">
-                <button
-                    class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
-                >
+                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
                     Create Timeslot
                 </button>
 
-                <a href="/" class="text-black ml-4"> Back </a>
+                <a href="/group_index" class="text-black ml-4"> Back </a>
             </div>
         </form>
     </x-card>

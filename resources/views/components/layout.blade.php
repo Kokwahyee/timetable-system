@@ -14,6 +14,49 @@
         />
         <script src="//unpkg.com/alpinejs" defer></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Dropdown Button */
+            .dropbtn {
+            background-color: #ef3b2d;
+            color: white;
+            padding: 5px;
+            font-size: 15px;
+            border: none;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+            position: relative;
+            display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+            color: black;
+            padding: 5px 5px;
+            text-decoration: none;
+            display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {background-color: #ddd;}
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {display: block;}
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {background-color: #ef3b2d;}
+        </style>
         <script>
             tailwind.config = {
                 theme: {
@@ -42,22 +85,31 @@
                         </span>
                 </li>
                 <li>
-                    
-                    <a href="/" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-calendar "></i> Exam/Short Test</a>
-                    
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class="fa-solid fa fa-calendar "></i><b> Timetable</b></button>
+                        <div class="dropdown-content">
+                            <a href="/exam_index" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-calendar "></i> Exam Timetable</a>
+                            <a href="/index" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-calendar "></i> Short Test Timetable</a>
+                            <a href="/group_index" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-calendar "></i> Group Timetable</a>
+                        </div>
+                      </div>
                 </li>
+                
                 <li>
                     
-                    <a href="/index1" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-calendar "></i> Group Timetable</a>
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class="fa-solid fa fa-plus-square "></i><b> Add Timeslot</b></button>
+                        <div class="dropdown-content">
+                            @if($old_section == 'admin')
+                            <a href="/listings/exam_create" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-plus-square "></i> Exam Timeslot</a>
+                            <a href="/listings/create" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-plus-square "></i> Short Test Timeslot</a>
+                            @endif
+                            <a href="/listings/group_create" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-plus-square "></i> Group Timeslot</a>
+                        </div>
+                      </div>
                     
                 </li>
-                @if($old_section == 'admin')
-                <li>
-                    
-                    <a href="/listings/create" class="hover:text-laravel text-base"> <i class="fa-solid fa fa-plus-square "></i> Timeslot</a>
-                    
-                </li>
-                @endif
+                
                 @if($old_section == 'admin')
                 <li>
                     

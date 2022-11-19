@@ -42,13 +42,6 @@
 
             <div class="mb-6">
                 <label for="day" class="inline-block text-lg mb-2">Day</label>
-                {{--<input
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="title"
-                    placeholder="Example: Senior Laravel Developer"
-                    value="{{old('title')}}"
-                />--}}
 
                 <select class="form-control" name="day">
                     <option value="monday" {{ $listing->day == 'monday' ? 'selected' : '' }}>Monday</option>
@@ -110,7 +103,7 @@
                     Update Timeslot
                 </button>
 
-                <a href="/" class="text-black ml-4"> Back </a>
+                <a href="/group_index" class="text-black ml-4"> Back </a>
             </div>
         </form>
     </x-card>

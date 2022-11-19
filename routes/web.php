@@ -29,18 +29,31 @@ use App\Http\Controllers\ListingController;
 //testing git pushes
 
 //All Listings
-Route::get('/',[ListingController::class,'index']);
+Route::get('/', [UserController::class, 'login']);
 
-Route::get('/index1',[ListingController::class,'index1']);
+Route::get('/index',[ListingController::class,'index']);
+Route::get('/exam_index',[ListingController::class,'exam_index']);
+Route::get('/group_index',[ListingController::class,'group_index']);
+
 
 //Show create form
 Route::get('/listings/create',[ListingController::class,'create'])->middleware('auth');
+//Show create form
+Route::get('/listings/exam_create',[ListingController::class,'exam_create'])->middleware('auth');
+//Show create form
+Route::get('/listings/group_create',[ListingController::class,'group_create'])->middleware('auth');
 
 //Store Listing Data
 Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 
 //Show edit Form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
+
+//Show edit Form
+Route::get('/listings/{listing}/exam_edit', [ListingController::class, 'exam_edit'])->middleware('auth');
+
+//Show edit Form
+Route::get('/listings/{listing}/group_edit', [ListingController::class, 'group_edit'])->middleware('auth');
 
 //Update
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
