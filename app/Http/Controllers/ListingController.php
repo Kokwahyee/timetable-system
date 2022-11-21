@@ -74,7 +74,39 @@ class ListingController extends Controller
 
         return redirect('/group_index')->with('message', 'Listing Created Successfully!');
     }
+    //store listing data
+    public function shortstore(Request $request) {
+        
+        $formFields = $request->validate([
+            'course'=>'required',
+            'location'=>'required',
+            'type'=>'required',
+            'day'=>'required',
+            'time'=>'required'
+        ]);
+        $formFields['user_id'] = auth()->id();
 
+        Listing::create($formFields);
+
+        return redirect('/group_index')->with('message', 'Listing Created Successfully!');
+    }
+
+    //store listing data
+    public function examstore(Request $request) {
+        
+        $formFields = $request->validate([
+            'course'=>'required',
+            'location'=>'required',
+            'type'=>'required',
+            'day'=>'required',
+            'time'=>'required'
+        ]);
+        $formFields['user_id'] = auth()->id();
+
+        Listing::create($formFields);
+
+        return redirect('/group_index')->with('message', 'Listing Created Successfully!');
+    }
     //Show Edit form
     public function edit(Listing $listing) {
         return view('listings.edit', ['listing' => $listing]);

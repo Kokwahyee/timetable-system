@@ -9,7 +9,7 @@
             <br>
         </header>
 
-        <form method="POST" action="/listings" enctype="multipart/form-data">
+        <form method="POST" action="/shortlistings" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label

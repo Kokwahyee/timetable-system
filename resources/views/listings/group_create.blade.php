@@ -70,7 +70,7 @@
                         <option value="tutorial" @if (old('type') == 'tutorial') selected="selected" @endif>Tutorial</option>
                         <option value="lecture" @if (old('type') == 'lecture') selected="selected" @endif>Lecture</option>
                     @endif
-                    <option value="meetup" @if (old('type') == 'meetup') selected="meetup" @endif> Meet Up</option>
+                    <option value="meetup" @if (old('type') == 'meetup') selected="selected" @endif> Meet Up</option>
                 </select>
             </div>
 

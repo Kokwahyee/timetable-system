@@ -45,6 +45,10 @@ Route::get('/listings/group_create',[ListingController::class,'group_create'])->
 
 //Store Listing Data
 Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
+//Store Listing Data
+Route::post('/shortlistings', [ListingController::class, 'shortstore'])->middleware('auth');
+//Store Listing Data
+Route::post('/examlistings', [ListingController::class, 'examstore'])->middleware('auth');
 
 //Show edit Form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');

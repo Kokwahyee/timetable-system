@@ -42,7 +42,7 @@
                                     </td>
                                 
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        
+                                        @if(\Auth::user()->role=='user')
                                         @foreach($users as $user)
                                             @foreach($listings as $listing) {{-- for loop--}}
                                                 @if ($listing->day == 'monday')
@@ -95,7 +95,10 @@
                                                                 <div>
                                                                     <div>
                                                                         <h3 class="text-sm" style="text-transform:uppercase;">
-                                                                            <a href="/listings/{{$listing->id}}">{{$listing->course}}</a>
+                                                                            <a href="/listings/{{$listing->id}}">{{$listing->course}} {{$listing->type}}</a>
+                                                                        </h3>
+                                                                        <h3 class="text-sm" style="text-transform:uppercase;">
+                                                                            <a href="/listings/{{$listing->id}}">{{$user->name}}</a>
                                                                         </h3>
                                                                         {{--<x-listing-tags :tagsCsv="$listing->tags" />--}}
             
@@ -112,7 +115,10 @@
                                                                 <div>
                                                                     <div>
                                                                         <h3 class="text-sm" style="text-transform:uppercase;">
-                                                                            <a href="/listings/{{$listing->id}}">{{$listing->course}}</a>
+                                                                            <a href="/listings/{{$listing->id}}">{{$listing->course}} {{$listing->type}}</a>
+                                                                        </h3>
+                                                                        <h3 class="text-sm" style="text-transform:uppercase;">
+                                                                            <a href="/listings/{{$listing->id}}">{{$user->name}}</a>
                                                                         </h3>
                                                                         {{--<x-listing-tags :tagsCsv="$listing->tags" />--}}
             
@@ -129,7 +135,10 @@
                                                                 <div>
                                                                     <div>
                                                                         <h3 class="text-sm" style="text-transform:uppercase;">
-                                                                            <a href="/listings/{{$listing->id}}">{{$listing->course}}</a>
+                                                                            <a href="/listings/{{$listing->id}}">{{$listing->course}} {{$listing->type}}</a>
+                                                                        </h3>
+                                                                        <h3 class="text-sm" style="text-transform:uppercase;">
+                                                                            <a href="/listings/{{$listing->id}}">{{$user->name}}</a>
                                                                         </h3>
                                                                         {{--<x-listing-tags :tagsCsv="$listing->tags" />--}}
             
@@ -148,7 +157,44 @@
                                                 @endif
                                             @endforeach
                                             @endforeach
-    
+                                            @else       
+                                            @foreach($listings as $listing)
+                                                @if($listing->type == 'tutorial')
+                                                    <x-card>
+                                                        <div>
+                                                            <div>
+                                                                
+                                                                <h3 class="text-sm" style="text-transform:uppercase;">
+                                                                    <a href="/listings/{{$listing->id}}">{{$listing->course}} {{$listing->type}}</a>
+                                                                </h3>
+                                                                {{--<x-listing-tags :tagsCsv="$listing->tags" />--}}
+
+                                                                <div class="text-sm" style="text-transform:uppercase;">
+                                                                    <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </x-card>
+                                                @endif
+                                                @if($listing->type == 'lecture')
+                                                    <x-card>
+                                                        <div>
+                                                            <div>
+                                                                
+                                                                <h3 class="text-sm" style="text-transform:uppercase;">
+                                                                    <a href="/listings/{{$listing->id}}">{{$listing->course}} {{$listing->type}}</a>
+                                                                </h3>
+                                                                {{--<x-listing-tags :tagsCsv="$listing->tags" />--}}
+
+                                                                <div class="text-sm" style="text-transform:uppercase;">
+                                                                    <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </x-card>
+                                                @endif
+                                            @endforeach
+                                            @endif
                                     </td>
                                 
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
