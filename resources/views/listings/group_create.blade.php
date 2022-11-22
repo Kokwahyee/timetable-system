@@ -70,7 +70,9 @@
                         <option value="tutorial" @if (old('type') == 'tutorial') selected="selected" @endif>Tutorial</option>
                         <option value="lecture" @if (old('type') == 'lecture') selected="selected" @endif>Lecture</option>
                     @endif
+                    @if(\Auth::user()->role =='user')
                     <option value="meetup" @if (old('type') == 'meetup') selected="selected" @endif> Meet Up</option>
+                    @endif
                 </select>
             </div>
 
@@ -132,7 +134,6 @@
                 @enderror
 
             </div>
-            @if(\Auth::user()->role =='user')
                     <div class="mb-6">
                         <label
                             for="groups"
@@ -141,7 +142,7 @@
                             Group: 
                         </label>
                         <select class="form-control" name="groups">
-                            @if(\Auth::user()->groupslot == 'null')
+                            @if(\Auth::user()->role == 'admin')
                                 <option value="null" @if (old('groups') == 'null') selected="selected" @endif>null</option>
                             @endif
 
@@ -184,7 +185,7 @@
                             @endif
                         </select>
                     </div>
-                    @endif
+                
             
 
             <div class="mb-6">
