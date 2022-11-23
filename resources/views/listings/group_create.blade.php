@@ -108,7 +108,6 @@
                     <option value="4-5" @if (old('time') == '4-5') selected="selected" @endif>4pm - 5pm</option>
                     <option value="5-6" @if (old('time') == '5-6') selected="selected" @endif>5pm - 6pm</option>
                     <option value="6-7" @if (old('time') == '6-7') selected="selected" @endif>6pm - 7pm</option>
-                    <option value="7-8" @if (old('time') == '7-8') selected="selected" @endif>7pm - 8pm</option>
                 </select>
                 
 

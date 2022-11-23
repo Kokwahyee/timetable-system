@@ -47,7 +47,7 @@
                                             @foreach($listings as $listing) {{-- for loop--}}
                                                 @if ($listing->day == 'monday')
                                                     @if ($listing->time == '8-9')
-                                                        @if(\Auth::user()->groupslot ==$listing->groups )
+                                                        @if(\Auth::user()->groupslot ==$listing->groups || $listing->groups == 'null' )
                                                             @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                                 <x-card>
                                                                     <div>
@@ -203,12 +203,12 @@
                                     </td>
                                 
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        @if(\Auth::user()->role=='user')
+                                        @if(\Auth::user()->role == 'user')
                                         @foreach($users as $user)
                                             @foreach($listings as $listing) {{-- for loop--}}
                                                 @if ($listing->day == 'tuesday')
                                                     @if ($listing->time == '8-9')
-                                                        @if(\Auth::user()->groupslot ==$listing->groups )
+                                                        @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                             @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                                 <x-card>
                                                                     <div>
@@ -319,6 +319,7 @@
                                             @endforeach
                                             @endforeach
                                             @endif
+                                            
                                             @if(\Auth::user()->role=='admin')       
                                                 
                                                     @foreach($listings as $listing)
@@ -369,7 +370,7 @@
                                             @foreach($listings as $listing) {{-- for loop--}}
                                                 @if ($listing->day == 'wednesday')
                                                     @if ($listing->time == '8-9')
-                                                        @if(\Auth::user()->groupslot ==$listing->groups )
+                                                        @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                             @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                                 <x-card>
                                                                     <div>
@@ -529,7 +530,7 @@
                                             @foreach($listings as $listing) {{-- for loop--}}
                                                 @if ($listing->day == 'thursday')
                                                     @if ($listing->time == '8-9')
-                                                        @if(\Auth::user()->groupslot ==$listing->groups )
+                                                        @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                             @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                                 <x-card>
                                                                     <div>
@@ -689,7 +690,7 @@
                                             @foreach($listings as $listing) {{-- for loop--}}
                                                 @if ($listing->day == 'friday')
                                                     @if ($listing->time == '8-9')
-                                                        @if(\Auth::user()->groupslot ==$listing->groups )
+                                                        @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                             @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                                 <x-card>
                                                                     <div>
@@ -854,7 +855,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '9-10')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -1013,7 +1014,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '9-10')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -1173,7 +1174,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '9-10')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -1333,7 +1334,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '9-10')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -1493,7 +1494,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '9-10')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -1659,7 +1660,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'monday')
                                                 @if ($listing->time == '10-11')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -1820,7 +1821,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'tuesday')
                                                 @if ($listing->time == '10-11')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -1980,7 +1981,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'wednesday')
                                                 @if ($listing->time == '10-11')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot == $listing->groups )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -2140,7 +2141,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'thursday')
                                                 @if ($listing->time == '10-11')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -2299,7 +2300,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'friday')
                                                 @if ($listing->time == '10-11')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -2465,7 +2466,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'monday')
                                                 @if ($listing->time == '11-12')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -2625,7 +2626,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'tuesday')
                                                 @if ($listing->time == '11-12')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -2785,7 +2786,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'wednesday')
                                                 @if ($listing->time == '11-12')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -2945,7 +2946,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'thursday')
                                                 @if ($listing->time == '11-12')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -3105,7 +3106,7 @@
                                         @foreach($listings as $listing) {{-- for loop--}}
                                             @if ($listing->day == 'friday')
                                                 @if ($listing->time == '11-12')
-                                                    @if(\Auth::user()->groupslot ==$listing->groups )
+                                                    @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                         @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                             <x-card>
                                                                 <div>
@@ -3271,7 +3272,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '12-1')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -3431,7 +3432,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '12-1')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -3591,7 +3592,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '12-1')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -3751,7 +3752,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '12-1')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -3911,7 +3912,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '12-1')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -4078,7 +4079,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '1-2')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -4238,7 +4239,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '1-2')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -4398,7 +4399,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '1-2')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -4558,7 +4559,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '1-2')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -4718,7 +4719,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '1-2')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -4885,7 +4886,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '2-3')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -5045,7 +5046,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '2-3')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -5205,7 +5206,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '2-3')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -5365,7 +5366,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '2-3')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -5525,7 +5526,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '2-3')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -5692,7 +5693,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '3-4')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -5852,7 +5853,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '3-4')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6012,7 +6013,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '3-4')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6172,7 +6173,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '3-4')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6332,7 +6333,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '3-4')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6500,7 +6501,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '4-5')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6660,7 +6661,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '4-5')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6820,7 +6821,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '4-5')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -6980,7 +6981,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '4-5')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -7140,7 +7141,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '4-5')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -7308,7 +7309,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '5-6')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -7468,7 +7469,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '5-6')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -7628,7 +7629,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '5-6')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -7788,7 +7789,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '5-6')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -7948,7 +7949,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '5-6')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -8116,7 +8117,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'monday')
                                             @if ($listing->time == '6-7')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -8276,7 +8277,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'tuesday')
                                             @if ($listing->time == '6-7')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -8436,7 +8437,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'wednesday')
                                             @if ($listing->time == '6-7')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -8596,7 +8597,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'thursday')
                                             @if ($listing->time == '6-7')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
@@ -8756,7 +8757,7 @@
                                     @foreach($listings as $listing) {{-- for loop--}}
                                         @if ($listing->day == 'friday')
                                             @if ($listing->time == '6-7')
-                                                @if(\Auth::user()->groupslot ==$listing->groups )
+                                                @if(\Auth::user()->groupslot ==$listing->groups  || $listing->groups == 'null' )
                                                     @if($listing->type == 'meetup' && $listing->user_id == $user->id )
                                                         <x-card>
                                                             <div>
